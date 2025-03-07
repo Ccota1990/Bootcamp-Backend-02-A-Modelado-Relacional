@@ -40,13 +40,9 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
 - Cursos:
   - requiereSub: campo boleano para saber si todo el curso es gratuito o solo para suscriptores
 
-- Lecciones:
-  - requiereSub: campo booleano para saber si la leccion del curso es gratuita o solo para suscriptores
-
 - Areas: añadida coleccion para tener las categorias de los cursos
   - id
-  - nombre
-  - ancestros: array
+  - Descripcion
 
 - Usuarios: añadida coleccion para controlar si son usuarios registrados o suscritos
   - id
