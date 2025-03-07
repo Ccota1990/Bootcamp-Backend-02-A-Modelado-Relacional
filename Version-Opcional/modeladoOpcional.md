@@ -11,7 +11,7 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
 - Los videos y el contenido de cada artículo se almacenan en un storage S3 y en un headless CMS, en la base de datos sólo almacenaremos los Id's a esos recursos.
 - Los videos se pueden clasificar por temáticas (Devops / Front End / Back End / ...)
 - Los videos tienen autores (ponemos la restricción, un video tiene un autor), un curso puede tener varios autores.
-- En principio los vídeos no se van a compartir entre diferentes cursos (aunque sería una amplicacíon interesante del ejercicio.
+- En principio los vídeos no se van a compartir entre diferentes cursos aunque sería una amplicacíon interesante del ejercicio.
 - Hay una opcíon para ver la página con la biografía del autor, esta página no va a ser muy visitada.
 
 ## Parte opcional
@@ -28,7 +28,7 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
 - Van a haber videos publicos y privados, es decir:
   - Un curso puede ser 100% publico.
   - Un curso puede tener una parte inicial 100% pública, y otra sólo para subscriptores.
-  - Esto implica que hayan usuarios registrados y subscripciones.
+  
 
   ### El planteamiento quedaria de la siguiente manera
   
@@ -39,7 +39,6 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
 
 - Cursos:
   - requiereSub: campo boleano para saber si todo el curso es gratuito o solo para suscriptores
-  - ancestros: array para la estructura jerarquica
 
 - Lecciones:
   - requiereSub: campo booleano para saber si la leccion del curso es gratuita o solo para suscriptores
@@ -53,4 +52,6 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
   - id
   - nombre
   - email
-  - suscriptor: booleano para comprobar si es suscriptor o no
+  - suscriptor: para comprobar si es suscriptor o no
+
+  

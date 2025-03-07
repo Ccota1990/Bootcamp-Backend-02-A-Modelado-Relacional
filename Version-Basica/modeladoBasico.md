@@ -9,7 +9,7 @@ Una startup tecnológica va a desarrollar un portal de ELearning y nos ha pedido
 - Lá página de cursos debe mostrar la lista de autores que lo hicieron.
 - Lá página de un video debe mostrar el autor que lo realizó.
 - Los videos y el contenido de cada artículo se almacenan en un storage S3 y en un headless CMS, en la base de datos sólo almacenaremos los Id's a esos recursos.
-- Los videos se pueden clasificar por temáticas (Devops / Front End / Back End / ...)
+- Los videos se pueden clasificar por temáticas (Devops / Front End / Back End / ...) , para simplificar, un video va a pertenecer a una sóla temática.
 - Los videos tienen autores (ponemos la restricción, un video tiene un autor), un curso puede tener varios autores.
 - En principio los vídeos no se van a compartir entre diferentes cursos aunque sería una amplicacíon interesante del ejercicio.
 - Hay una opcíon para ver la página con la biografía del autor.
@@ -19,7 +19,11 @@ Generar el modelo de entidad relación (físico), pero si quieres puedes generar
 
 ### El planteamiento quedaria de la siguiente manera
 
-![diagrama](diagramaBasicomodelado.png)
+![diagrama](modeladoRelacional.png)
+
+### Diagrama de chen
+
+![diagrama](diagramaDeChen.png)
 
 
 #### Colecciones y patrones utilizados:
@@ -29,18 +33,19 @@ Generar el modelo de entidad relación (físico), pero si quieres puedes generar
   - nombre
   - descripción
   - fechaCreación: para poder mostrar la fecha y buscar por ella
-  - area: de tipo object para la categoria
-  - lecciones: de tipo object array para mostrar las lecciones/videos del curso
-  - autor
+  Relacion 1 a M con lecciones ya que un curso puede contener muchas lecciones
+  Relacion de M a N con una tabla intermedia con autores ya que un curso puede pertenecer a muchos autores y un autor puede haber hecho varios cursos
 
 - Lecciones: contiene la informacion de los videos
   - id
   - titulo
   - descripcion
-  - autor: de tipo object para poder mostrar el autor de los videos
+  Relacion de 1 a M con autores, ya que un autor puede haber hecho varias lecciones, pero una lección solo puede pertenecer a un autor
+  Relacion de 1 a M con categorias ya que una leccion solo puede pertenecer a una categoria pero puede haber varias lecciones en la misma categoria
 
 - Autores: con la información mas detallada de los autores y sus cursos
   - id
   - nombre
   - biografia
-  - cursos: de tipo object array para poder mostrar los cursos del autor
+  Relacion de 1 a M con lecciones, ya que un autor puede haber hecho varias lecciones, pero una lección solo puede pertenecer a un autor
+  Relacion de M a N con una tabla intermedia con cursos ya que un curso puede pertenecer a muchos autores y un autor puede haber hecho varios cursos
